@@ -1,96 +1,297 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="/_vercel/insights/script.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <title>Vercel HTML Starter</title>
-    <meta
-      name="description"
-      content="High-performance HTML based website template."
-    />
-  </head>
-  <body>
-    <h1>Vercel HTML Starter</h1>
-    <p>
-      This template is a simple, but powerful single
-      <code>index.html</code> file deployed to
-      <a href="https://vercel.com">Vercel</a>. When your site is deployed, all
-      static assets (like HTML, JavaScript, CSS, images, and more) are deployed
-      globally to every
-      <a href="https://vercel.com/docs/concepts/edge-network/overview"
-        >Vercel Edge Network</a
-      >
-      region.
-    </p>
-    <h2>Simple, privacy-friendly analytics</h2>
-    <p>
-      Want to understand your visitor traffic? Vercel Analytics gives you
-      first-party, privacy-friendly traffic analytics for your HTML site. This
-      template is already configured using the following script:
-    </p>
-    <pre><code>&lt;script defer src="/_vercel/insights/script.js"&gt;&lt;/script&gt;</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/analytics">Vercel Analytics</a>.
-    </p>
-    <h2>Integrated with git</h2>
-    <p>
-      Deploying updates to your site is as simple as
-      <code>git push</code> thanks to Vercel's advanced
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-      Support for GitHub, GitLab, Bitbucket is zero-configuration, and with the
-      flexible Vercel CLI and API, you can integrate with any tool possible.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-    </p>
-    <h2>Fast <code>gzip</code> compression</h2>
-    <p>
-      To help ensure the smallest possible file sizes for your static assets,
-      the Vercel Edge Network compresses files by default using
-      <code>gzip</code>. You can also optionally use
-      <code>brotli</code> compressesion if you prefer.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/edge-network/compression"
-        >compression</a
-      >.
-    </p>
-    <h2>Advanced routing configuration</h2>
-    <p>
-      Vercel gives you a variety of ways to configure the routing of your
-      website. For example, adding redirects, rewrites, or headers to your page.
-      While you can use <code>vercel.json</code> to define these through JSON,
-      you can also express your routing configuration as code using
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-    <p>
-      Middleware runs before the
-      <a href="https://vercel.com/docs/concepts/edge-network/caching"
-        >Vercel Edge Network Cache</a
-      >, so you can configure routing exactly as your application needs. For
-      example, this template uses <code>middleware.js</code> defined in the root
-      of the repository to add additional security headers to the site:
-    </p>
-    <pre><code>referrer-policy: origin-when-cross-origin
-strict-transport-security: max-age=31536000; includeSubDomains; preload
-x-content-type-options: nosniff
-x-dns-prefetch-control: on
-x-frame-options: DENY</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-  </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascabel Agency - Agencia de OnlyFans</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos adicionales para coincidir exactamente con el diseño React */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-white text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-pink-600 font-bold text-xl md:text-2xl tracking-tight">Cascabel Agency</h1>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#quienes-somos" class="text-gray-700 hover:text-pink-600 transition">Quiénes somos</a>
+                    <a href="#experiencia" class="text-gray-700 hover:text-pink-600 transition">Experiencia</a>
+                    <a href="#resultados" class="text-gray-700 hover:text-pink-600 transition">Resultados</a>
+                    <a href="#propuesta" class="text-gray-700 hover:text-pink-600 transition">Propuesta</a>
+                    <button class="bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700 transition">Contáctanos</button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuButton">
+                        <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#quienes-somos" class="block px-3 py-2 text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Quiénes somos</a>
+                <a href="#experiencia" class="block px-3 py-2 text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Experiencia</a>
+                <a href="#resultados" class="block px-3 py-2 text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Resultados</a>
+                <a href="#propuesta" class="block px-3 py-2 text-gray-700 hover:bg-pink-50 hover:text-pink-600 rounded-md">Propuesta</a>
+                <a href="https://wa.me/56975181564?text=Me%20interesa%20saber%20mas%20sobre%20Cascabel%20Agency%20!" class="block px-3 py-2 bg-pink-600 text-white rounded-md text-center">Contáctanos</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img 
+                src="https://picsum.photos/seed/cascabelagency/1920/1080" 
+                alt="Background" 
+                class="w-full h-full object-cover opacity-20"
+            />
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Transformamos tu presencia digital</h2>
+            <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+                En Cascabel Agency creamos estrategias personalizadas para maximizar tus ingresos y visibilidad en plataformas digitales.
+            </p>
+        </div>
+    </section>
+
+    <!-- Quienes Somos -->
+    <section id="quienes-somos" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">¿Quiénes somos?</h2>
+                <div class="h-1 w-20 bg-pink-600 mx-auto mt-2"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Cascabel Agency es una agencia especializada en el desarrollo de influencers y creadores de contenido digital. Nuestra misión es ayudarte a maximizar tus ingresos, proteger tu marca y expandir tu audiencia global con herramientas estratégicas y un equipo multidisciplinario que vive en constante evolución.
+                    </p>
+                    <p class="mt-4 text-lg text-gray-700 leading-relaxed">
+                        Trabajamos con modelos únicos y sostenibles que permiten a nuestros clientes enfocarse en crear contenido mientras nosotros nos encargamos del crecimiento y monetización.
+                    </p>
+                </div>
+                <div class="bg-pink-100 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Nuestros Valores</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-pink-600 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Transparencia absoluta</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-pink-600 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Confidencialidad garantizada</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-pink-600 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Innovación constante</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-pink-600 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Enfoque en resultados reales</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-pink-600 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Equipo multidisciplinario</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencia -->
+    <section id="experiencia" class="py-16 bg-pink-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Nuestra Experiencia</h2>
+                <div class="h-1 w-20 bg-pink-600 mx-auto mt-2"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Especialistas en OnlyFans</h3>
+                    <p class="text-gray-700">Más de 3 años optimizando perfiles, contenidos y estrategias de monetización en la plataforma líder mundial.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Expertos en Contenido Digital</h3>
+                    <p class="text-gray-700">Manejamos todas las etapas de producción y distribución de contenido con estándares profesionales.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Gestión de Marca Personal</h3>
+                    <p class="text-gray-700">Creamos identidades únicas y memorables que resuenan con tu audiencia objetivo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados -->
+    <section id="resultados" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Resultados Tangibles</h2>
+                <div class="h-1 w-20 bg-pink-600 mx-auto mt-2"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-pink-600">+3x</div>
+                    <p class="text-gray-700 mt-2">Aumento promedio en ganancias</p>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-pink-600">95%</div>
+                    <p class="text-gray-700 mt-2">Éxito en reclamos DMCA</p>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-pink-600">10x</div>
+                    <p class="text-gray-700 mt-2">Gasto promedio extranjero vs hispanohablante</p>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-pink-600">100+</div>
+                    <p class="text-gray-700 mt-2">Perfiles optimizados exitosamente</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Propuesta -->
+    <section id="propuesta" class="py-16 bg-pink-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Nuestra Propuesta de Valor</h2>
+                <div class="h-1 w-20 bg-pink-600 mx-auto mt-2"></div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6 md:p-10">
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-pink-600 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span><strong>Aumento de 3-10 veces</strong> sobre las ganancias actuales en las plataformas.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-pink-600 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span><strong>Equipo especializado en DMCA CLAIMS</strong> (bajar contenido filtrado)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-pink-600 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span><strong>Ayuda en los procesamiento de pagos</strong> (evitar problemas con SII)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-pink-600 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span><strong>Exposición al público extranjero</strong>, especialmente de habla inglesa (gastan en promedio 10 veces más que el hispanohablante)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-pink-600 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span><strong>Canal de difusión garantizado</strong> con target de público referido & Chat de asistencia.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-pink-600 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span><strong>Inyección de BOTS asistidos</strong> para todas sus Plataformas y Redes sociales.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-pink-600 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span><strong>Incentivo de Bienvenida:</strong> valor de 300-500 mil pesos CLP para el Perfil nuevo</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-pink-600 mt-0.5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span><strong>Contrato de confidencialidad y términos de trabajo.</strong> Sin exclusividad.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-pink-600 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-2xl font-bold">Cascabel Agency</h2>
+                <p class="mt-2 text-pink-100">Optimizando tu éxito digital desde el primer día</p>
+                <div class="mt-6 border-t border-pink-500 pt-6">
+                    <p class="text-pink-200">&copy; <span id="currentYear"></span> Cascabel Agency. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('open');
+            
+            if (mobileMenu.classList.contains('open')) {
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+            }
+        });
+        
+        // Año actual en el footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling para los enlaces
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Cerrar menú móvil si está abierto
+                if (mobileMenu.classList.contains('open')) {
+                    mobileMenu.classList.remove('open');
+                    menuIcon.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+                }
+            });
+        });
+    </script>
+</body>
 </html>
